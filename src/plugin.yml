@@ -1,0 +1,10 @@
+name: PrisonPit
+main: fun.oneline.prisonpit.Main
+version: 0.1.0
+author: oneka
+softdepend:
+  - OneLineAPI
+  - PacketListenerAPI
+  - PlaceHolderAPI
+  - DreamNetworkCoreServer
+description: PrisonPit plugin
