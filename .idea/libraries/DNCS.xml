@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="DNCS">
     <CLASSES>
-      <root url="jar://E:/Папки/jars/DNCS.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/Compiled/DNCS.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

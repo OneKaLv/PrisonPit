@@ -1,5 +1,8 @@
 package fun.oneline.prisonpit.handlers;
 
+import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.flags.DefaultFlag;
+import com.sk89q.worldguard.protection.flags.StateFlag;
 import fun.oneline.api.inventory.ClickAction;
 import fun.oneline.api.inventory.CustomInventory;
 import fun.oneline.api.inventory.item.CustomItem;
@@ -31,6 +34,10 @@ public class onInteractWithBlock implements Listener {
         if(event.getAction() == Action.RIGHT_CLICK_BLOCK){
             if(event.getClickedBlock().getType() == Material.CONCRETE){
                 if(PrisonPitPlayerManager.getPrisonPitPlayer(event.getPlayer().getName()).getTotalStars() >= 10){
+                    ApplicableRegionSet set = onBreak.manager.getApplicableRegions(event.getClickedBlock().getLocation());
+                    if (set.queryState(null, DefaultFlag.BLOCK_BREAK) == StateFlag.State.DENY) {
+                        return;
+                    }
                     showDestroyBlockMenu(event.getPlayer(),event.getClickedBlock());
                 }
             }

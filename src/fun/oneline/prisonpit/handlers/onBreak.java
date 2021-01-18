@@ -4,6 +4,7 @@ import com.sk89q.worldguard.bukkit.WGBukkit;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.flags.DefaultFlag;
 import com.sk89q.worldguard.protection.flags.StateFlag;
+import com.sk89q.worldguard.protection.managers.RegionManager;
 import fun.oneline.prisonpit.Main;
 import fun.oneline.prisonpit.boosters.Booster;
 import fun.oneline.prisonpit.boosters.BoosterType;
@@ -27,9 +28,13 @@ import java.util.Random;
 
 public class onBreak implements Listener {
 
+    public static RegionManager manager;
+
     public onBreak(Main plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
+        manager = WGBukkit.getPlugin().getRegionManager(Bukkit.getWorlds().get(0));
     }
+
 
     public static void setPointsLevelBreak(PrisonPitPlayer prisonPitPlayer) {
         int points = prisonPitPlayer.getPoints();
@@ -56,18 +61,17 @@ public class onBreak implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onBlockBreak(BlockBreakEvent event) {
+        ApplicableRegionSet set = manager.getApplicableRegions(event.getBlock().getLocation());
+        if (set.queryState(null, new StateFlag[]{DefaultFlag.BLOCK_BREAK}) == StateFlag.State.DENY) {
+            return;
+        }
         Random random = new Random();
         Player player = event.getPlayer();
-        Block block = event.getBlock();
         event.setExpToDrop(0);
         event.setDropItems(false);
         if(TokenManager.autoBlocks.contains(player)){
             event.setCancelled(true);
             player.sendMessage("§7[§c!§7]§e У вас активен бонус авто-блоки! Вы не можете копать во время этого!");
-            return;
-        }
-        ApplicableRegionSet set = WGBukkit.getPlugin().getRegionManager(block.getWorld()).getApplicableRegions(block.getLocation());
-        if (set.queryState(null, new StateFlag[]{DefaultFlag.BLOCK_BREAK}) == StateFlag.State.DENY) {
             return;
         }
         PrisonPitPlayer prisonPitPlayer = PrisonPitPlayerManager.getPrisonPitPlayer(player.getName());

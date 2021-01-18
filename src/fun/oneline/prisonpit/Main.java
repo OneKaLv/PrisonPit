@@ -1,5 +1,6 @@
 package fun.oneline.prisonpit;
 
+import com.comphenix.protocol.ProtocolLibrary;
 import fun.oneline.api.configs.Configs;
 import fun.oneline.api.configs.CustomConfig;
 import fun.oneline.prisonpit.board.Board;
@@ -14,6 +15,7 @@ import fun.oneline.prisonpit.handlers.*;
 import fun.oneline.prisonpit.items.Pickaxes;
 import fun.oneline.prisonpit.leaderboards.LeaderBoards;
 import fun.oneline.prisonpit.player.PrisonPitPlayerManager;
+import fun.oneline.prisonpit.shaft.PacketListener;
 import fun.oneline.prisonpit.shaft.ShaftGenerator;
 import fun.oneline.prisonpit.tokens.AutoBlocks;
 import fun.oneline.prisonpit.tokens.TokenManager;
@@ -133,7 +135,7 @@ public class Main extends JavaPlugin {
         new onPlayerInteract(plugin);
         new TokenCommand().register();
         new StuckCommand().register();
-        new PayCommand().register();
+        getCommand("pay").setExecutor(new PayCommand());
         new HideCommand().register();
         new ThxCommand().register();
         DreamNetworkCoreBukkit.getInstance().getCommand("donate").setExecutor(new DonateCommand());
@@ -179,5 +181,6 @@ public class Main extends JavaPlugin {
                 }
             }
         });
+        ProtocolLibrary.getProtocolManager().addPacketListener(new PacketListener());
     }
 }

@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="OneLineAPI">
     <CLASSES>
-      <root url="jar://E:/Папки/jars/OneLineAPI.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/OneLineAPI.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

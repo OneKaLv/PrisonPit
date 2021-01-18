@@ -31,10 +31,7 @@ public class PrisonPitPlayerManager {
     public static List<String> onStorm = new ArrayList();
 
     public static PrisonPitPlayer getPrisonPitPlayer(String name) {
-        if (prisonPitPlayerHashMap.containsKey(name)) {
-            return prisonPitPlayerHashMap.get(name);
-        }
-        return null;
+        return prisonPitPlayerHashMap.getOrDefault(name , null);
     }
 
     public static void LoadPrisonPitPlayer(Player player) {

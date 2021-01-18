@@ -9,12 +9,14 @@ import fun.oneline.prisonpit.items.Pickaxes;
 import fun.oneline.prisonpit.player.PrisonPitPlayerManager;
 import fun.oneline.prisonpit.shaft.ShaftUpdaterForSinglePlayer;
 import fun.oneline.prisonpit.tokens.TokenManager;
+import fun.oneline.prisonpit.utils.Hider;
 import fun.oneline.prisonpit.utils.Utils;
 import org.bukkit.*;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -127,7 +129,16 @@ public class onPlayerJoin implements Listener {
     }
 
     @EventHandler
+    public void onCommand(PlayerCommandPreprocessEvent e) {
+        if(e.getMessage().contains("/pay")) {
+            e.setCancelled(true);
+            e.getPlayer().chat(e.getMessage().replace("/pay" , "/prisonpit:pay"));
+        }
+    }
+
+    @EventHandler
     public void onPlayerJoin(PlayerProfileLoadedEvent event) {
+        Hider.join(event.getPlayer());
         event.getJoinEvent().setJoinMessage(null);
         Player player = event.getPlayer();
         PrisonPitPlayerManager.LoadPrisonPitPlayer(player);

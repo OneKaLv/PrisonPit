@@ -46,7 +46,7 @@ public class PayCommand extends AbstractCommand {
         } else {
             player.sendMessage("§7[§e§lPrison §6§lPit§7]§e Для передачи осколков используй комманду /pay <Ник игрока> <Сумма осколков>");
         }
-        return false;
+        return true;
     }
 
     @Override

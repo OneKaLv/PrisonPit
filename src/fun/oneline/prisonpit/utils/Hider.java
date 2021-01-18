@@ -10,6 +10,12 @@ public class Hider {
 
     public static List<Player> hider = new ArrayList<>();
 
+    public static void join(Player player) {
+        for(Player p : hider) {
+            p.hidePlayer(player);
+        }
+    }
+
     public static void add(Player player) {
         if (hider.contains(player)) return;
 

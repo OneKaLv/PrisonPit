@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PrrsonPit">
+    <output-path>$USER_HOME$/Desktop/Compiled</output-path>
+    <root id="archive" name="PrrsonPit.jar">
+      <element id="module-output" name="PrisonPit" />
+    </root>
+  </artifact>
+</component>
