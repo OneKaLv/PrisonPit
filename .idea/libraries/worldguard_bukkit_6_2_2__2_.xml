@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="worldguard-bukkit-6.2.2 (2)">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Desktop/worldguard-bukkit-6.2.2 (2).jar!/" />
-      <root url="jar://$USER_HOME$/Desktop/worldedit-bukkit-6.1.9 (1).jar!/" />
+      <root url="jar://E:/Папки/jars/worldguard-bukkit-6.2.2 (2).jar!/" />
+      <root url="jar://E:/Папки/jars/WorldEdit.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
