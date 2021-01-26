@@ -7,13 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="OneLineAPI" level="project" />
     <orderEntry type="library" name="Citizens" level="project" />
     <orderEntry type="library" name="DNCS" level="project" />
-    <orderEntry type="library" name="OneLineAPI" level="project" />
     <orderEntry type="library" name="PacketListenerAPI_v3.7.8-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="PlaceholderAPI-2.10.4" level="project" />
+    <orderEntry type="library" name="PlaceholderAPI-2.10.6" level="project" />
     <orderEntry type="library" name="ProtocolLib" level="project" />
-    <orderEntry type="library" name="worldguard-bukkit-6.2.2 (2)" level="project" />
     <orderEntry type="library" name="spigot-1.12.2" level="project" />
+    <orderEntry type="library" name="worldguard-bukkit-6.2.2 (2)" level="project" />
   </component>
 </module>

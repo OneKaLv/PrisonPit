@@ -73,7 +73,7 @@ public class onGoldBlockASClick implements Listener {
     }
 
     public static void sendV2(Player p){
-        Location location = new Location(Bukkit.getWorlds().get(0), -92, 53.5, -43);
+        Location location = new Location(Bukkit.getWorlds().get(0), 120.5, 56.4, 3.5);
         WorldServer s = ((CraftWorld) location.getWorld()).getHandle();
         EntityArmorStand stand = new EntityArmorStand(s);
         stand.setLocation(location.getX(),location.getY(),location.getZ(),location.getYaw(),location.getPitch());
@@ -102,11 +102,12 @@ public class onGoldBlockASClick implements Listener {
     }
 
     public static void sendCountArmorStand(Player p, String price) {
-        Location loc = new Location(Bukkit.getWorlds().get(0), -92, 51, -43);
+
+        Location loc = new Location(Bukkit.getWorlds().get(0), 120.5, 53.5, 3.5);
         WorldServer s = ((CraftWorld) loc.getWorld()).getHandle();
         EntityArmorStand stand = new EntityArmorStand(s);
         Random random = new Random();
-        stand.setLocation(-92.5 + random.nextDouble(), 51.2, -43.5 + random.nextDouble(), 0, 0);
+        stand.setLocation(120 + random.nextDouble(), 53.5, 3 + random.nextDouble(), 0, 0);
         stand.setCustomNameVisible(true);
         stand.setCustomName("§c-" + price + "$");
         stand.setBasePlate(true);
@@ -135,10 +136,10 @@ public class onGoldBlockASClick implements Listener {
     }
 
     public static void sendLevelArmorStand(Player p) {
-        Location loc = new Location(Bukkit.getWorlds().get(0), -92, 53.25, -43);
+        Location loc = new Location(Bukkit.getWorlds().get(0), 120.5, 56.2, 3.5);
         WorldServer s = ((CraftWorld) loc.getWorld()).getHandle();
         EntityArmorStand stand = new EntityArmorStand(s);
-        stand.setLocation(-92, 53.25, -43, 0, 0);
+        stand.setLocation(120.5, 56.2, 3.5, 0, 0);
         stand.setCustomNameVisible(true);
         stand.setCustomName("§a" + PrisonPitPlayerManager.getPrisonPitPlayer(p.getName()).getGoldblockroom_level() + " Уровень");
         stand.setBasePlate(true);

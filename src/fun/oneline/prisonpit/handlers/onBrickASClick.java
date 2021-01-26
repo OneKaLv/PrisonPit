@@ -77,10 +77,10 @@ public class onBrickASClick implements Listener {
 
     public static void sendbrickspersec(Player player){
         PrisonPitPlayer prisonPitPlayer = PrisonPitPlayerManager.getPrisonPitPlayer(player.getName());
-        Location loc = new Location(Bukkit.getWorlds().get(0), -92, 52.9 - (stage > 0?((50-stage)/100.0):((50+stage)/100.0)), 43);
+        Location loc = new Location(Bukkit.getWorlds().get(0), 143.5, 55.9 - (stage > 0?((50-stage)/100.0):((50+stage)/100.0)), -126.5);
         WorldServer s = ((CraftWorld) loc.getWorld()).getHandle();
         EntityArmorStand stand = new EntityArmorStand(s);
-        stand.setLocation(-92, 52.9 - (stage > 0?(50-stage)/100.0:(50+stage)/100.0), 43, 0, 0);
+        stand.setLocation(143.5, 55.9 - (stage > 0?(50-stage)/100.0:(50+stage)/100.0), -126.5, 0, 0);
         stand.setCustomNameVisible(true);
         int blockslevel = prisonPitPlayer.getBoosterMoney_level();
         int rank = 0;
@@ -138,10 +138,10 @@ public class onBrickASClick implements Listener {
 
     public static void sendbricksbalance(Player player){
         PrisonPitPlayer prisonPitPlayer = PrisonPitPlayerManager.getPrisonPitPlayer(player.getName());
-        Location loc = new Location(Bukkit.getWorlds().get(0), -92, 53.25, 43);
+        Location loc = new Location(Bukkit.getWorlds().get(0), 143.5, 55.25, -126.5);
         WorldServer s = ((CraftWorld) loc.getWorld()).getHandle();
         EntityArmorStand stand = new EntityArmorStand(s);
-        stand.setLocation(-92, 53.25, 43, 0, 0);
+        stand.setLocation(143.5, 56.3, -126.5, 0, 0);
         stand.setCustomNameVisible(true);
         stand.setCustomName("§6§lКирпичей - " + Utils.getMoney(prisonPitPlayer.getBricks()));
         stand.setBasePlate(true);
@@ -161,7 +161,7 @@ public class onBrickASClick implements Listener {
     }
 
     public static void summonBAStext(Location location){
-        location.setY(location.getY()+2);
+        location.setY(location.getY()+2.5);
         ArmorStand as = location.getWorld().spawn(location, ArmorStand.class);
         as.setCustomNameVisible(true);
         as.setCustomName("§e§lДвор кирпичей");
