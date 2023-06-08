@@ -51,7 +51,7 @@ public class Main extends JavaPlugin {
         if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
             new HoldersAPI(this).register();
         }
-        new MySQL("localhost", "PrisonPit", "root", "E9wzPzAuc9bpEHgm"); // main
+        new MySQL("1", "1", "1", "1"); // main
         loadListener(this);
         Board.setAnimText();
         Pickaxes.LoadPickAxes();
